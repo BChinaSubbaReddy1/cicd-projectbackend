@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+         http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
 
@@ -44,11 +45,16 @@
       <scope>runtime</scope>
     </dependency>
 
-    <!-- Local custom library (installed to local Maven repo) -->
+    <!-- Optional: Local custom library -->
+    <!-- 
+      If using Docker, this dependency must be installed manually inside Docker:
+      RUN mvn install:install-file -Dfile=/app/custom-lib-1.0.0.jar -DgroupId=com.example -DartifactId=custom-lib -Dversion=1.0.0 -Dpackaging=jar
+    -->
     <dependency>
       <groupId>com.example</groupId>
       <artifactId>custom-lib</artifactId>
       <version>1.0.0</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
